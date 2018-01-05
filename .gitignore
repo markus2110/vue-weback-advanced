@@ -4,9 +4,9 @@ dist/
 npm-debug.log
 yarn-error.log
 /build
-/nbproject
 
 # Editor directories and files
+/nbproject
 .idea
 *.suo
 *.ntvs*
