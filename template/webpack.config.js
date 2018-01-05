@@ -90,7 +90,9 @@ module.exports = function(env, args){
             extensions: ['.js', '.vue', '.json'],
             alias: {
                 "~" : path.resolve(__dirname, 'src/'),
-                "@" : path.resolve(__dirname, 'src/')
+                "@" : path.resolve(__dirname, 'src/'),
+                "package": path.resolve(__dirname, 'src/packages/'),
+                "packages": path.resolve(__dirname, 'src/packages/')
             }
       },
 
