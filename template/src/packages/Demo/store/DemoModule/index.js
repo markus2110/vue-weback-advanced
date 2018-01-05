@@ -3,7 +3,9 @@ import Actions      from "./Actions";
 import Mutations    from "./Mutations";
 
 
-export default {
+export const DemoStore = {
+
+    name : "Demo",
 
     namespaced: true,
 

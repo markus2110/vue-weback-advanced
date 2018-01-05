@@ -1,6 +1,7 @@
 <template>
-    <div id="aboutpage">
-        <h3>About Page</h3>
+    <div>
+        <h1>Error</h1>
+        <h2>404 Page not found!</h2>
     </div>
 </template>
 
