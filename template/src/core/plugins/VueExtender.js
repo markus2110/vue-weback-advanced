@@ -27,6 +27,8 @@ const VueExtender =  {
 
 
     _initPackages : function(){
+        // no packages registered
+        if(typeof this.$options.activePackages === "undefined"){ return; }
 
         this.$registerPackages(this.$options.activePackages);
 
