@@ -19,7 +19,7 @@
     "less": {
        "type": "confirm",
        "message": "Use less?",
-       "default": true
+       "default": false
     },    
     
     "bootstrap": {
