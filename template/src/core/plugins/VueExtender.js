@@ -37,8 +37,15 @@ const VueExtender =  {
                 this.$router.addRoutes(pack.routes);
             }
 
-            // Register Store
-            if(typeof pack.store === "object"){
+
+            // Register multiple package stores
+            if (typeof pack.store === "object" && typeof pack.store.length !== "undefined" && pack.store.length > 0){
+                pack.store.forEach(( store ) => {
+                    this.$store.registerModule(store.name, store);
+                });
+            }
+            // Register a Single Store
+            else if(typeof pack.store === "object"){
                 this.$store.registerModule(pack.store.name, pack.store);
             }
 
