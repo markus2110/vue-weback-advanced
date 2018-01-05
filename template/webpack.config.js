@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 //const ExtractTextPlugin = require("extract-text-webpack-plugin");
 //const CleanCSSPlugin    = require("less-plugin-clean-css");
-//const UglifyJSPlugin    = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin    = require('uglifyjs-webpack-plugin');
 
 
 
@@ -123,15 +123,27 @@ module.exports = function(env, args){
 
         config.plugins = (config.plugins || []).concat([
 
-            // Uglify JS
-            new webpack.optimize.UglifyJsPlugin({
-                sourceMap: false,
-                compress: {
-                    drop_console: true,
-                    warnings: false,
-                    drop_debugger: true
-                }
-            }),
+            new UglifyJSPlugin({
+                    uglifyOptions: {
+                	sourceMap: false,
+                	compress: {
+                	    drop_console: true,
+                	    warnings: false,
+                	    drop_debugger: true
+                	}
+                    }
+            })
+
+//          Not working correctly with ES2015
+//            new webpack.optimize.UglifyJsPlugin({
+//                sourceMap: false,
+//                compress: {
+//                    drop_console: true,
+//                    warnings: false,
+//                    drop_debugger: true
+//                }
+//            }),
+
 
 //            new webpack.LoaderOptionsPlugin({
 //                minimize: true
