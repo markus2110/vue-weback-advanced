@@ -1,13 +1,13 @@
 #!/bin/bash
 
+P1=$1
+
 npm install
 ./node_modules/.bin/vue init . build
 
-cd build
-npm install
-npm test
-npm run build
-npm run dev
 
-
-
+if [ "$P1" == "run" ]; then
+    cd build
+    npm install
+    npm run dev
+fi
