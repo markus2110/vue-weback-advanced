@@ -15,8 +15,8 @@
 
             <tbody  v-if="demoRecords.length > 0">
                 <tr class="record" v-bind:class="{ done: record.done }" v-for="record in demoRecords">
-                    <td>{{ record.id }}</td>
-                    <td>{{ record.name }}</td>
+                    <td>\{{ record.id }}</td>
+                    <td>\{{ record.name }}</td>
                     <td><input type="checkbox" v-bind:checked="record.done ? 'checked' : ''" v-on:change="toggleDone(record)" /></td>
                 </tr>
             </tbody>
@@ -30,9 +30,9 @@
 
             <tfoot>
                 <tr>
-                    <td><span>Open: {{ notDoneRecords }}</span></td>
+                    <td><span>Open: \{{ notDoneRecords }}</span></td>
                     <td></td>
-                    <td><span>Done: {{ doneRecords }}</span></td>
+                    <td><span>Done: \{{ doneRecords }}</span></td>
                 </tr>
 
                 <tr>
