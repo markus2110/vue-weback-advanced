@@ -14,7 +14,7 @@
 </script>
 
 
-<style>
+<style {{#less}}lang="less"{{/less}}>
 
 #app-footer {
     position: fixed;
