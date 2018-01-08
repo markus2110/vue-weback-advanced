@@ -9,11 +9,13 @@ import UserPackage from "packages/User/index";
 
 
 var App = new VueApp({
+    // Application wrapper
+    el : '#application-wrapper',
     // The active Vue Packages
     activePackages : [ DemoPackage, UserPackage ],
-    // h = alias for createElement
-    render :        (h) => h(AppMain)
+    // App Template
+    template : AppMain
 })
 
 // Mount the App
-App.$mount('#application-wrapper');
+App.start();
