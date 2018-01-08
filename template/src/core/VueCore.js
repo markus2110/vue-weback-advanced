@@ -78,15 +78,15 @@ VueApp.prototype = {
             this.router.addRoutes(_package.routes);
 
             // Register Routing guards
-//            if(typeof _package.routeGuards === "object"){
-//                _package.routeGuards.forEach( (guard) => {
-//                    if(typeof guard !== "function"){
-//                        throw Error("routeGuard needs to be a function");
-//                    }else{
-//                        this.router.beforeEach(guard);
-//                    }
-//                })
-//            }
+            if(typeof _package.routeGuards === "object"){
+                _package.routeGuards.forEach( (guard) => {
+                    if(typeof guard !== "function"){
+                        throw Error("routeGuard needs to be a function");
+                    }else{
+                        this.router.beforeEach(guard);
+                    }
+                })
+            }
         }
     },
 
