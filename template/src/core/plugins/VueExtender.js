@@ -16,13 +16,44 @@ const VueExtender =  {
     },
 
     _extendVuePrototype : function(Vue){
+        Vue.prototype.$packageList         = [];
+        Vue.prototype.$registerPackages    = this._registerPackages;
+        Vue.prototype.$initPackages        = this._initPackages;
 
-        Vue.prototype.$packageList = [];
-        Vue.prototype.$registerPackages = function(packages){
-            Vue.prototype.$packageList = packages;
-        };
+        Vue.prototype.$getPackage = function(packName){
+            if(typeof this.$packageList[packName] !== "undefined"){
+                return this.$packageList[packName];
+            }else{
+                throw Error(`Package '${packName}' not registered`);
+            }
+        }
 
-        Vue.prototype.$initPackages = this._initPackages;
+
+        Vue.prototype.$getPackageConfig = function(packName, configName){
+            
+            var pack = Vue.prototype.$getPackage(packName);
+
+            if(typeof pack.config[configName] !== "undefined"){
+                return pack.config[configName];
+            }else{
+                throw Error(`Package config '${packName}/${configName}' not found`);
+            }
+        }
+    },
+
+
+    _registerPackages : function(){
+
+        this.$options.activePackages.forEach( (pack, index) => {
+            var packName = Object.keys(pack).toString();
+            var packAttributes = pack[packName];
+
+            if(typeof this.$packageList[packName] === "undefined"){
+                this.$packageList[packName] = packAttributes;
+            }else{
+                throw Error(`Package '${packName}' already registered`);
+            }
+        });
     },
 
 
@@ -30,9 +61,12 @@ const VueExtender =  {
         // no packages registered
         if(typeof this.$options.activePackages === "undefined"){ return; }
 
-        this.$registerPackages(this.$options.activePackages);
+        this.$registerPackages();
 
-        this.$packageList.forEach( ( pack ) => {
+
+        for(var packName in this.$packageList){
+
+            var pack = this.$packageList[packName];
 
             // Register Routing
             if(typeof pack.routes === "object"){
@@ -43,7 +77,7 @@ const VueExtender =  {
             // Register multiple package stores
             if (typeof pack.store === "object" && typeof pack.store.length !== "undefined" && pack.store.length > 0){
                 pack.store.forEach(( store ) => {
-                    this.$store.registerModule(store.name, store);
+                    this.$store.registerModule(packName + "/" + store.name, store);
                 });
             }
             // Register a Single Store
@@ -51,7 +85,7 @@ const VueExtender =  {
                 this.$store.registerModule(pack.store.name, pack.store);
             }
 
-        });
+        }
     }
 }
 

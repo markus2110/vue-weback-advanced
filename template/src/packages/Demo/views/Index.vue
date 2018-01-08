@@ -54,26 +54,26 @@
     export default {
 
         created: function () {
-            this.$store.dispatch('Demo/fetchData');
+            this.$store.dispatch('DemoPackage/Demo/fetchData');
         },
 
         computed: {
             demoRecords : function(){
-                return this.$store.getters["Demo/allData"];
+                return this.$store.getters["DemoPackage/Demo/allData"];
             },
 
             doneRecords : function(){
-                return this.$store.getters["Demo/countDone"];
+                return this.$store.getters["DemoPackage/Demo/countDone"];
             },
             notDoneRecords : function(){
-                return this.$store.getters["Demo/countNotDone"];
+                return this.$store.getters["DemoPackage/Demo/countNotDone"];
             },
 
         },
 
         methods : {
             toggleDone : function(record){
-                this.$store.commit("Demo/TOGGLE_DONE", record);
+                this.$store.commit("DemoPackage/Demo/TOGGLE_DONE", record);
             }
         }
     }

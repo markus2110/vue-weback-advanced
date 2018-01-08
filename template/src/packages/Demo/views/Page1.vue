@@ -17,12 +17,12 @@
     export default {
 
         created: function () {
-            this.$store.dispatch('Lorem/fetchRecords');
+            this.$store.dispatch('DemoPackage/Lorem/fetchRecords');
         },
 
         computed: {
             demoRecords : function(){
-                return this.$store.getters["Lorem/allRecords"];
+                return this.$store.getters["DemoPackage/Lorem/allRecords"];
             }
         }
 

@@ -5,7 +5,9 @@ import { LoremStore } from "./store/LoremModule/index";
 
 
 export default {
-    config  : DemoPackageConfig,
-    store   : [ DemoStore, LoremStore ],
-    routes  : DemoRoutes
+    "DemoPackage" : {
+        config  : DemoPackageConfig,
+        store   : [ DemoStore, LoremStore ],
+        routes  : DemoRoutes
+    }
 };
