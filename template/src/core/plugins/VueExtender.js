@@ -20,6 +20,9 @@ const VueExtender =  {
         Vue.prototype.$registerPackages    = this._registerPackages;
         Vue.prototype.$initPackages        = this._initPackages;
 
+
+        // method to get a registered package
+        // throws an Error if package is not defined
         Vue.prototype.$getPackage = function(packName){
             if(typeof this.$packageList[packName] !== "undefined"){
                 return this.$packageList[packName];
@@ -28,7 +31,8 @@ const VueExtender =  {
             }
         }
 
-
+        // method to get a config value of registered package
+        // throws an Error if package or config is not defined
         Vue.prototype.$getPackageConfig = function(packName, configName){
             
             var pack = Vue.prototype.$getPackage(packName);
@@ -72,7 +76,6 @@ const VueExtender =  {
             if(typeof pack.routes === "object"){
                 this.$router.addRoutes(pack.routes);
             }
-
 
             // Register multiple package stores
             if (typeof pack.store === "object" && typeof pack.store.length !== "undefined" && pack.store.length > 0){
