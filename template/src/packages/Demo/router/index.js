@@ -5,5 +5,7 @@ const DemoPage2     = function(){ return import(/* webpackChunkName: "demo/page2
 export const DemoRoutes = [
     { path: '/demo',        component: DemoHome,    name: 'demo-home',  },
     { path: '/demo/page1',  component: DemoPage1,   name: 'demo-page-1' },
-    { path: '/demo/page2',  component: DemoPage2,   name: 'demo-page-2' }
+
+    // secured page
+    { path: '/demo/page2',  component: DemoPage2,   name: 'demo-page-2', meta : { requiresAuth:true }}
 ];

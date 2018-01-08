@@ -75,7 +75,20 @@ const VueExtender =  {
             // Register Routing
             if(typeof pack.routes === "object"){
                 this.$router.addRoutes(pack.routes);
+
+                // Register Routing guards
+                if(typeof pack.routeGuards === "object"){
+                    pack.routeGuards.forEach( (guard) => {
+                        if(typeof guard !== "function"){
+                            throw Error("routeGuard needs to be a function");
+                        }else{
+                            this.$router.beforeEach(guard);
+                        }
+                    })
+                }
             }
+
+
 
             // Register multiple package stores
             if (typeof pack.store === "object" && typeof pack.store.length !== "undefined" && pack.store.length > 0){

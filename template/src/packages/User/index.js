@@ -1,11 +1,14 @@
 import { UserPackageConfig } from "./config/index";
-//import { DemoRoutes } from "./router/index";
-//import { DemoStore } from "./store/DemoModule/index";
-//import { LoremStore } from "./store/LoremModule/index";
+import { UserRoutes } from "./router/index";
+import isAuthenticatedGuard from "./router/guards/isAuthenticated";
+
 
 
 export default {
     "UserPackage" : {
-        config  : UserPackageConfig
+        config :        UserPackageConfig,
+        //store   : [ DemoStore, LoremStore ],
+        routes :        UserRoutes,
+        routeGuards :   [isAuthenticatedGuard]
     }
 };
