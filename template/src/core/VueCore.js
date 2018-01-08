@@ -88,7 +88,7 @@ VueApp.prototype = {
         }
         // Register a Single Store
         else if(typeof _package.store === "object"){
-            this.store.registerModule(_packageName + "/"+ _package.store.name, pack.store);
+            this.store.registerModule(_packageName + "/"+ _package.store.name, _package.store);
         }
     }
 };
