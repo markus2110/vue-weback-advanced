@@ -44,9 +44,9 @@ VueApp.prototype = {
             // Vue App Wrapper
             el : this.options.el,
             // Vue-Router
-            router :        this.router,
+            router : this.router,
             // VueX
-            store :         this.store,
+            store : this.store,
             // Render function
             render : (h) => h(this.options.template)
         })
@@ -78,15 +78,15 @@ VueApp.prototype = {
             this.router.addRoutes(_package.routes);
 
             // Register Routing guards
-            if(typeof _package.routeGuards === "object"){
-                _package.routeGuards.forEach( (guard) => {
-                    if(typeof guard !== "function"){
-                        throw Error("routeGuard needs to be a function");
-                    }else{
-                        this.router.beforeEach(guard);
-                    }
-                })
-            }
+//            if(typeof _package.routeGuards === "object"){
+//                _package.routeGuards.forEach( (guard) => {
+//                    if(typeof guard !== "function"){
+//                        throw Error("routeGuard needs to be a function");
+//                    }else{
+//                        this.router.beforeEach(guard);
+//                    }
+//                })
+//            }
         }
     },
 
