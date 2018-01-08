@@ -19,7 +19,7 @@
     }
 </script>
 
-<style>
+<style {{#less}}lang="less"{{/less}}>
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

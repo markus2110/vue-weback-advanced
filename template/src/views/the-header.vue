@@ -16,7 +16,7 @@
 </script>
 
 
-<style>
+<style {{#less}}lang="less"{{/less}}>
 
 #app-header {
     position: fixed;
