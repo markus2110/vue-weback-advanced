@@ -20,7 +20,7 @@
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
     {{#fontawesome}}
-    "font-awesome": "github:fortawesome/Font-Awesome",
+    "font-awesome": "^4.7.0",
     {{/fontawesome}}
     {{#less}}
     "less": "^2.7.3",
